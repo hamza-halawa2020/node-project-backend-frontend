@@ -1,0 +1,41 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+        <div class="container mt-5">
+            <div class="h1 text-center">►Edit Your Task◄</div>
+            <div class="row">
+                <form method="post" action="/update">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control w-50 border border-warning" name="title" id="title" value="<%= eventat.title %>">
+                    </div>
+                    <input type="hidden" name="id" value="<%= eventat.id %>">
+                    <div class="form-group">
+                        <label for="location">status</label>
+                        <input type="text" class="form-control w-50 border border-warning" name="location" id="location"
+                            value="<%= eventat.location %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control w-50 border border-warning" name="date" id="date" value="<%= eventDate %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea rows="4" name="description" class="form-control border border-warning"><%= eventat.description %></textarea>
+                    </div>
+                    
+                    <div class="form-group m-2">
+                        <button type="submit" class="btn btn-warning form-control">Update</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <%- include('../partials/footer') -%>

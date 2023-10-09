@@ -1,0 +1,77 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+
+    <div class="container mt-5 w-50">
+        <%- include('../partials/flashmessages') -%>
+
+        <% if (locals.user){ %>
+<div class="h1 pb-2 text-center border border border-warning bg-warning rounded w-50">
+            welcome back <%= user.fName %>
+        </div>
+                <% }else{ %>
+                    not user
+                    <% } %>
+
+
+                    <div class="container w-50">
+                        <form method="post" action="/change-data" class="m-auto">
+                            <div class="form-group">
+                                <label for="newfName">first name</label>
+                                <input type="text" class="form-control border border-warning" name="newfName" id="newfName">
+                                <label for="newlName">last name</label>
+                                <input type="text" class="form-control border border-warning" name="newlName" id="newlName">
+                                <label for="newAge">your age</label>
+                                <input type="number" class="form-control border border-warning" name="newAge" id="newAge" min="18" max="80" placeholder="your age mut be between 18 - 80">
+                                <button type="submit" class="btn btn-warning form-control mt-3">update</button>
+                            </div>
+                        </form>
+                        
+                            <a href="/change" class="btn btn-warning mt-5">Change password</a>
+
+                    
+                        <button type="button"class="btn btn-danger w-100 mt-5"  id="deleteUserBtn" onclick="deleteUser()"  data-id="<%= user.id %>" >
+                            Delete My Account Only
+                        </button>
+
+
+
+                        <button type="button" class="btn btn-danger w-100 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete My Account And All My Tasks
+                        </button>
+                    </div>
+
+
+
+
+                    
+
+    
+</div>
+
+                        <%- include('../partials/footer') -%>
+
+
+
+
+
+
+                         <!-- start Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Do You Want To Delete This Task ??
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" onclick="terminateUser()" id="terminateBtn"
+                                data-id="<%= user.id %>">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Modal -->

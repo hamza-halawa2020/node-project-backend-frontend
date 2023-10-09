@@ -1,0 +1,61 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+
+        <div class="container mt-5">
+            <div class="h1 text-center">Edit Task !</div>
+            <%- include('../partials/flashmessages') -%>
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-12 col-md-4">
+                            <div class="card border border-warning">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= eventat.title %>
+                                    </h5>
+                                    <hr style="background-color: orange; color: orange; height: 3px;">
+                                    <p class="card-text">
+                                        <%= eventat.description %>
+                                    </p>
+                                    <hr style="background-color: orange; color: orange; height: 3px;">
+                                    <p class="card-text">
+                                        your status is : <%= eventat.location %>
+                                    </p>
+                                    <p class="text-center"><span class="card-text badge bg-warning">
+                                            <%= eventat.date.toDateString() %>
+                                        </span>
+                                    </p>
+                                    <% if((user) && (user.id == eventat.user_id)){ %>
+                                        <a href=" <%= '/edit/' + eventat.id %> "
+                                            class="btn btn-warning w-100 mb-2">Edit</a>
+                                        <a href="#" class="btn btn-danger w-100 " data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">Delete
+                                        </a>
+                                    <% } %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- start Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Do You Want To Delete This Task ??
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" onclick="deleteTask()" id="deleteBtn"
+                                    data-id="<%= eventat.id %>">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end Modal -->
+                <%- include('../partials/footer') -%>

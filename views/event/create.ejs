@@ -1,0 +1,25 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+        <div class="container mt-5">
+            <div class="h1 text-center w-50 mx-auto pb-2 border border border-warning bg-warning rounded">Add New Task</div>
+            <div class="row">
+                <%- include('../partials/flashmessages') -%>
+                                <form method="post" action="/create" class="w-50 mx-auto">
+                                        <input type="text" placeholder="title" class="form-control border border-warning mb-3" name="title" id="title">
+                                        <input type="text" placeholder="status" class="form-control border border-warning mb-3" name="location" id="location">
+                                        <input type="date" class="form-control border border-warning mb-3" name="date" id="date">
+                                        <textarea rows="4" placeholder="description" name="description" class="form-control border border-warning mb-3"></textarea>
+                                        <button type="submit" class="btn btn-warning form-control">Create</button>
+                                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <%- include('../partials/footer') -%>

@@ -1,0 +1,32 @@
+<% if(locals.message){ %>
+    <% message.forEach((err)=>{ %>
+        <div class="alert alert-success text-center" role="alert">
+            <%= message %>
+        </div>
+    <% }) %>
+<% } %>
+
+
+
+<% if(locals.result){ %>
+    <% result.forEach((err)=>{ %>
+        <div class="alert alert-danger text-center" role="alert">
+            <%= err.msg %>
+        </div>
+    <% }) %>
+<% } %>
+
+
+<% if (locals.error && error !="") {%>
+         
+    <div class="alert alert-danger">
+            <%= error%>
+    </div>
+  <%}%>     
+      
+  <% if (locals.success && success !="") {%>
+         
+    <div class="alert alert-success">
+            <%= success%>
+    </div>
+  <%}%>   

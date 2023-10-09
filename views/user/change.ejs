@@ -1,0 +1,34 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+
+    <div class="container mt-5 w-50">
+        <%- include('../partials/flashmessages') -%>
+
+                    <div class="container w-50">
+                        <form method="post" action="/change-password">
+                            <div class="form-group mt-2">
+                                <label for="password" class="mt-2 mb-2 h4">change your password:</label>
+                                <input type="password" class="form-control text-center border border-warning" name="oldPassword" id="oldPassword" placeholder="old password">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="password" class="form-control text-center border border-warning" name="newPassword" id="newPassword" placeholder="new password">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="password" class="form-control text-center border border-warning" name="confirmNewPassword" id="confirmNewPassword" placeholder="confirm new password">
+                            </div>
+                            <div class="form-group mt-2 mb-2">
+                                <button type="submit" class="btn btn-warning form-control">Change</button>
+                            </div>
+                        </form>
+                    
+                    </div>
+
+    
+</div>
+<%- include('../partials/flashmessages') -%>
+
+
+
+
+
+                        <%- include('../partials/footer') -%>

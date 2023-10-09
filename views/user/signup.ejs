@@ -1,0 +1,37 @@
+<%- include('../partials/header') -%>
+    <%- include('../partials/navbar') -%>
+        <div class="container mt-5">
+            <div class="container w-50 mt-5">
+            <div class="h1 text-center pb-2 border border border-warning bg-warning rounded">sign up</div>
+            <div class="row">
+               
+                <%- include('../partials/flashmessages') -%>
+                                <form method="post" action="/signup" class="m-auto">
+                                    <div class="form-group">
+                                        <label for="email">email</label>
+                                        <input type="email" class="form-control border-warning" name="email" id="email">
+                                        <label for="name">first name</label>
+                                        <input type="text" class="form-control border-warning" name="fName" id="fName">
+                                        <label for="name">last name</label>
+                                        <input type="text" class="form-control border-warning " name="lName" id="lName">
+                                        <label for="name">your age</label>
+                                        <input type="number" class="form-control border-warning" name="age" id="age" min="18" max="80" placeholder="your age mut be between 18 - 80">
+                                        <label for="password">password</label>
+                                        <input type="password" class="form-control border-warning " name="password" id="password">
+                                        <label for="confirm_password">confirm password</label>
+                                        <input type="password" class="form-control border-warning" name="confirm_password" id="confirm_password">
+                                        <button type="submit" class="btn btn-warning form-control mt-3">sign up</button>
+                                    </div>
+                                </form>
+
+                            </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <%- include('../partials/footer') -%>

@@ -1,0 +1,57 @@
+
+<div>hello from footer</div>
+
+<script src="/axios/dist/axios.min.js"></script>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../public/js/main.js"></script>
+
+<script>
+function deleteTask() {
+    const btn = document.getElementById('deleteBtn');
+    if (!btn) {
+        console.error("Button element not found");
+        return;
+    }
+    
+    const id = btn.getAttribute('data-id');
+    console.log('Deleting task with ID:', id);
+    
+    axios.delete('/delete/' + id)
+        .then((res) => {
+            console.log('Delete response:', res.data);
+            window.location.href = '/';
+        })
+        .catch((err) => {
+            console.error('Error deleting task:', err);
+        });
+}
+
+function deleteUser() {
+    const btn = document.getElementById('deleteUserBtn');
+    const id = btn.getAttribute('data-id');
+    console.log(id);
+    axios.delete('/deleteUsr/'+ id)
+    .then((res) => {
+        console.log(res.data);
+        window.location.href = '/';
+     })
+     .catch((err => {
+        console.log(err);
+     }))
+}
+
+function terminateUser() {
+    const btn = document.getElementById('terminateBtn');
+    const id = btn.getAttribute('data-id');
+    console.log(id);
+    axios.delete('/terminate/'+ id)
+    .then((res) => {
+        console.log(res.data);
+        window.location.href = '/';
+     })
+     .catch((err => {
+        console.log(err);
+     }))
+}
+</script>
